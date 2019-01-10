@@ -103,9 +103,7 @@ class MyClient(discord.Client):
         if message.author.id == self.user.id:
             return
         if message.content.startswith('ML! Help'):
-            await message.channel.send('Type ML! "exact item name" to pull up info on an item or ship') 
-        elif message.content.startswith('ML!'):
-            await message.channel.send('Hello {0.author.mention}'.format(message)) 
+            await message.channel.send('Type ML! "exact item name" to pull up info on an item or ship')  
         elif message.content.startswith('ML!'):
             str_item_only = (message.content.split(None, 1)[1]).strip()  # split the command so that we only retrieve content after command and remove all trailing and leading white space
             response = await self.command_lookup(str_item_only)  # run our lookup command on the given input item
