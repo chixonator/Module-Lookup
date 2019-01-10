@@ -101,9 +101,7 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         # we do not want the bot to reply to itself
         if message.author.id == self.user.id:
-            return
-        if message.content.startswith('ML! Help'):
-            await message.channel.send('Type ML! "exact item name" to pull up info on an item or ship')  
+            return 
         elif message.content.startswith('ML!'):
             str_item_only = (message.content.split(None, 1)[1]).strip()  # split the command so that we only retrieve content after command and remove all trailing and leading white space
             response = await self.command_lookup(str_item_only)  # run our lookup command on the given input item
