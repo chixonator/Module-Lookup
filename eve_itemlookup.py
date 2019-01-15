@@ -13,6 +13,8 @@ class MyClient(discord.Client):
         print(self.user.name)
         print(self.user.id)
         print('------')
+        game = discord.Game("Type ML! \"exact item name\" ships may take a minute to load")
+        await client.change_presence(status=discord.Status.idle, activity=game)
 
     async def get_dogma_names(self, dogma_list):
         """given a list of dictionaries consisting of dogma ids, make a new list with ids changed to names"""
